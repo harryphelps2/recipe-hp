@@ -54,3 +54,6 @@
 2. Run locally
 
 `FLASK_APP=app.py FLASK_DEBUG=1 flask run`
+3. Install heroku
+
+`brew install heroku/brew/heroku`

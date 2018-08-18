@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="carousel carousel-slider center">
     {% for recipe in recipes %}
-        {{ recipe.dish }}
-        {% for comment in recipe.comments %}
-            {{ comment.username }}
-            {{ comment.comment }}
-        {% endfor %}
+        <div class="carousel-item amber white-text" href="#one!">
+            <h2>{{ recipe.dish }}</h2>
+            <p class="white-text">Number of upvotes: {{ recipe.number_of_upvotes }}</p>
+            <img src={{recipe.picture}}>
+            <div class="carousel-fixed-item center">
+                <a class="btn waves-effect white grey-text darken-text-2">Let's cook {{ recipe.dish }}</a>
+            </div>
+        </div>
     {% endfor %}
+</div>
 {% endblock %}

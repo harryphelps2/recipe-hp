@@ -1,17 +1,10 @@
-<html>
-    <head>
-
-    </head>
-    <body>
-        {% for recipe in recipes %}
-            {{ recipe.dish }}
-            {% for comment in recipe.comments %}
-                {{ comment.username }}
-                {{ comment.comment }}
-            {% endfor %}
-        {% endfor %}
-        <!-- {% for comment in comments %}
+{% extends 'base.html' %}
+{% block content %}
+    {% for recipe in recipes %}
+        {{ recipe.dish }}
+        {% for comment in recipe.comments %}
             {{ comment.username }}
-        {% endfor %} -->
-    </body>
-</html>
+            {{ comment.comment }}
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
+from bson import ObjectId
 
 app = Flask(__name__)
 
@@ -14,6 +15,16 @@ mongo = PyMongo(app)
 def get_recipes():
     return render_template("recipes.html", 
     recipes=mongo.db.recipes.find())
+
+@app.route('/<oid>')
+def cook_recipe(oid):
+    return render_template("recipe.html",
+    recipe=mongo.db.recipes.find({"_id": ObjectId(oid)}))
+
+@app.route('/steps/<oid>')
+def cook_recipe_fullscreen(oid):
+    return render_template("steps.html",
+    recipe=mongo.db.recipes.find({"_id": ObjectId(oid)}))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

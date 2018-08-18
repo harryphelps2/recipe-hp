@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for recipe in recipe %}
+    <div>
+        <img class="responsive-img" src={{recipe.picture}}>
+        <h2>{{ recipe.dish }}</h2>
+    </div>
+    <div>
+        <h3>Ingredients</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ingredient</th>
+                    <th>Amount</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ingredient in recipe.ingredients %}
+                    <tr>
+                    <td>{{ ingredient.name }}</td>
+                    <td>{{ ingredient.amount }}</td>
+                    <td>{{ ingredient.price }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h3>Steps:</h3>
+        <a class="btn waves-effect white grey-text darken-text-2" href="/steps/{{ recipe._id}}">Go full screen</a>
+        <ol>
+            {% for step in recipe.steps %}
+            <li>{{ step.step }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+        <div class="col-md-auto">
+            <h2>Welcome!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-auto">
+            <p class="username">Enter name below to start cooking:</p>
+        </div>
+    </div>
+    <div>
+        <div>
+            <form method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+            </form>
+        </div>
+    </div>
+    <div>
+        <button type="button" class="btn btn-outline-success">Let's cook</button>
+    </div>
+</div>
+{% endblock %}

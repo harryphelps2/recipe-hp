@@ -25,11 +25,11 @@ def get_recipes(username):
 @app.route('/<username>/<oid>')
 def cook_recipe(username, oid):
     return render_template("cook_recipe.html",
-    recipe=mongo.db.recipes.find({"_id": ObjectId(oid)}))
+    recipe=mongo.db.recipes.find({"_id": ObjectId(oid)}), username=username)
 
 @app.route('/steps/<oid>')
 def cook_recipe_fullscreen(oid):
-    return render_template("steps.html",
+    return render_template("recipe_steps.html",
     recipe=mongo.db.recipes.find({"_id": ObjectId(oid)}))
 
 @app.route('/add_recipe')

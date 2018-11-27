@@ -1,4 +1,69 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>hi</h1>
+<div class="row">
+    <form class="col s12">
+        <div class="input-field col s9">
+            <input placeholder="Dish name" id="dish" type="text">
+        </div>
+        <div class="input-field col s3">
+            <input placeholder="Cooking time in minutes" id="cooking_time" type="text">
+        </div>
+        <div>
+            <p>
+                <label>
+                    <input type="checkbox" for="spicy"/>
+                </label>
+            </p>
+        </div>
+    </form>
+</div>
 {% endblock %}
+
+<!-- {
+    "_id": {
+        "$oid": "5b780af2fb6fc066d427cad4"
+    },
+    "dish": "Eggs on toast",
+    "author": "harry",
+    "number_of_upvotes": "0",
+    "picture": "http://robebakery1884.com.au/wp-content/uploads/2015/11/egg-on-toast.jpg",
+    "comments": [
+        {
+            "username": "harry",
+            "comment": "This is my favourite dish",
+            "recommended": "True"
+        },
+        {
+            "username": "louise",
+            "comment": "Don't like it",
+            "recommended": "False"
+        }
+    ],
+    "cooking_time": "70",
+    "spicy": "false",
+    "ingredients": [
+        {
+            "name": "Eggs",
+            "amount": "2",
+            "price": "120",
+            "allergen": "false"
+        },
+        {
+            "name": "Toast",
+            "amount": "1 slice",
+            "price": "10",
+            "allergen": "false"
+        }
+    ],
+    "steps": [
+        {
+            "step": "Heat frying pan on high heat and add eggs once hot without breaking yoke."
+        },
+        {
+            "step": "Put toast in toaster."
+        },
+        {
+            "step": "When toast is done butter toast and add egg on top."
+        }
+    ]
+} -->

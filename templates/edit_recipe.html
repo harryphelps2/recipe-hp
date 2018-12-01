@@ -6,88 +6,83 @@
         <div class="input-field col s9">
             <input placeholder="author" id="author" type="text" name="author" value="{{ recipe.author }}">
         </div>
-        <div class="input-field col s9">
+        <div class="input-field col s6">
             <input placeholder="Dish name" id="dish" name="dish" type="text" value="{{ recipe.dish }}">
         </div>
-        <div class="input-field col s3">
+        <div class="input-field col s6">
             <input placeholder="Cooking time in minutes" id="cooking_time" name="cooking_time" type="text" value="{{ recipe.cooking_time }}">
         </div>
         <div class="row">
-        <div class="btn">
-            <span>Upload and Image</span>
-            <input type="file" name="picture">
-        </div>
-        <div class="file-path-wrapper">
-            <input class="file-path validate picture" type="text">
-        </div>
-    </div>
-        <div class="file-field input-field">
+            <div class="input-field col s6">
+                <input id="picture_link" type="text" class="validate" name="picture" value="{{ recipe.picture }}">
+                <label class="active" for="picture_link">Picture Link</label>
+            </div>
         </div>
         </div>
             <h4>Ingredients</h4>
             <div class="row">
             <div class="input-field col s12">
-                <textarea id="ingredients" name="ingredients" class="materialize-textarea" value="{{ recipe.ingredients }}"></textarea>
+                <textarea id="ingredients" name="ingredients" class="materialize-textarea">{{ recipe.ingredients }}</textarea>
                 <label for="textarea1">Type out your ingredients with quantities</label>
             </div>
             <h4>Instructions</h4>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="step_1" name="step_1" class="materialize-textarea" value="{{ recipe.step_1 }}"></textarea>
+                    <textarea id="step_1" name="step_1" class="materialize-textarea">{{ recipe.step_1 }}</textarea>
                     <label for="textarea1">Step number </label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="step_2" name="step_2" class="materialize-textarea" value="{{ recipe.step_2 }}"></textarea>
+                    <textarea id="step_2" name="step_2" class="materialize-textarea">{{ recipe.step_2 }}</textarea>
                     <label for="textarea1">Step number </label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="step_3" name="step_3" class="materialize-textarea" value="{{ recipe.step_3 }}"></textarea>
+                    <textarea id="step_3" name="step_3" class="materialize-textarea">{{ recipe.step_3 }}</textarea>
                     <label for="textarea1">Step number </label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="step_4" name="step_4" class="materialize-textarea" value="{{ recipe.step_4 }}"></textarea>
+                    <textarea id="step_4" name="step_4" class="materialize-textarea">{{ recipe.step_4 }}</textarea>
                     <label for="textarea1">Step number </label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="step_5" name="step_5" class="materialize-textarea" value="{{ recipe.step_5 }}"></textarea>
+                    <textarea id="step_5" name="step_5" class="materialize-textarea">{{ recipe.step_5 }}</textarea>
                     <label for="textarea1">Step number </label>
                 </div>
             </div>
             <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="step_6" name="step_6" class="materialize-textarea" value="{{ recipe.step_6 }}"></textarea>
+                        <textarea id="step_6" name="step_6" class="materialize-textarea">{{ recipe.step_6 }}</textarea>
                         <label for="textarea1">Step number </label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="step_7" name="step_7" class="materialize-textarea" value="{{ recipe.step_7 }}"></textarea>
+                        <textarea id="step_7" name="step_7" class="materialize-textarea">{{ recipe.step_7 }}</textarea>
                         <label for="textarea1">Step number </label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="step_8" name="step_8" class="materialize-textarea" value="{{ recipe.step_8 }}"></textarea>
+                        <textarea id="step_8" name="step_8" class="materialize-textarea">{{ recipe.step_8 }}</textarea>
                         <label for="textarea1">Step number </label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="step_9" name="step_9" class="materialize-textarea" value="{{ recipe.step_9 }}"></textarea>
+                        <textarea id="step_9" name="step_9" class="materialize-textarea">{{ recipe.step_9 }}</textarea>
                         <label for="textarea1">Step number </label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="step_10" name="step_10" class="materialize-textarea" value="{{ recipe.step_10 }}"></textarea>
+                        <textarea id="step_10" name="step_10" class="materialize-textarea">{{ recipe.step_10 }}</textarea>
                         <label for="textarea1">Step number </label>
                     </div>
                 </div>

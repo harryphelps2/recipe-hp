@@ -2,7 +2,7 @@
 {% block content %}
 {% for recipe in recipe %}
     <div>
-        <img class="responsive-img" src={{recipe.picture}}>
+        <img class="responsive-img" src="/static/img/{{ recipe.picture }}">
         <h2>{{ recipe.dish }}</h2>
     </div>
     <div>
@@ -47,6 +47,10 @@
                 <li>{{ recipe.step_10 }}</li>
             {% endif %}
         </ol>
+    </div>
+    <div>
+        <a class="waves-effect waves-light btn" href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit</a>
+        <a class="waves-effect waves-light btn">Delete</a>
     </div>
 {% endfor %}
 {% endblock %}

@@ -20,6 +20,21 @@ def cook_recipe(oid):
     return render_template("cook_recipe.html",
     recipe=mongo.db.recipes.find({"_id": ObjectId(oid)}))
 
+@app.route('/upvote/<recipe_id>')
+def upvote(recipe_id):
+    recipes = mongo.db.recipes
+    the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    current_upvotes = the_recipe['upvotes']
+    print(type(current_upvotes))
+    new_upvotes = current_upvotes + 1
+    print(type(new_upvotes))
+    recipes.update( 
+        {'_id': ObjectId(recipe_id)},
+        { '$set': { "upvotes": new_upvotes } }
+    )
+    # the_recipe['upvotes'] += 1
+    return redirect(url_for('cook_recipe', oid=recipe_id ))
+
 @app.route('/add_recipe')
 def add_recipe():
     return render_template("add_recipe.html")
@@ -40,8 +55,6 @@ def edit_recipe(recipe_id):
 def update_recipe(recipe_id):
     print(request.form)
     recipes = mongo.db.recipes
-    the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    username = request.form['author']
     recipes.update( {'_id': ObjectId(recipe_id)},
     {
         'dish':request.form['dish'],
@@ -49,6 +62,7 @@ def update_recipe(recipe_id):
         'cooking_time':request.form['cooking_time'],
         'picture' : request.form['picture'],
         'ingredients': request.form['ingredients'],
+        'upvotes': '0',
         'step_1':request.form['step_1'],
         'step_2':request.form['step_2'],
         'step_3':request.form['step_3'],

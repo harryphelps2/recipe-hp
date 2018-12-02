@@ -4,7 +4,7 @@
     <form class="col s12" action="{{ url_for('insert_recipe') }}" method="POST" >
         <h4>Dish details</h4>
         <div class="input-field col s9">
-            <input placeholder="author" id="author" type="text" name="author" value="{{ username }}">
+            <input placeholder="author" id="author" type="text" name="author">
         </div>
         <div class="input-field col s9">
             <input placeholder="Dish name" id="dish" name="dish" type="text">
@@ -12,14 +12,16 @@
         <div class="input-field col s3">
             <input placeholder="Cooking time in minutes" id="cooking_time" name="cooking_time" type="text">
         </div>
-        <div class="switch">
-            <label>
-                Not-Spicy
-                <input type="checkbox" id="spicy" name="spicy">
-                <span class="lever"></span>
-                Spicy
-            </label>
+        <div class="input-field col s12">
+            <select name="cuisine">
+                <option value="" disabled selected>Choose your cuisine</option>
+                {% for cuisine in cuisines %}
+                <option value="{{ cuisine.cuisine }}">{{ cuisine.cuisine }}</option>
+                {% endfor %}
+            </select>
+            <label>Select Cuisine</label>
         </div>
+    
         <div class="row">
             <div class="input-field col s6">
                 <input id="picture_link" type="text" class="validate" name="picture">

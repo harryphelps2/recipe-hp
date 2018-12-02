@@ -1,18 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="carousel carousel-slider center">
+    <div class="row">
+        
+
+    </div>
+    <div class="row">
         {% for recipe in recipes %}
-            <div class="carousel-item amber white-text" href="#one!">
-                <h2>{{ recipe.dish }}</h2>
-                <p class="white-text">Number of upvotes: {{ recipe.number_of_upvotes }}</p>
-                <img class="responsive-img" src='{{ recipe.picture }}'>
-                <div class="carousel-fixed-item center">
-                    <a class="btn waves-effect white grey-text darken-text-2" href="/{{ recipe._id}}">Let's cook {{ recipe.dish }}</a>
+        <div class="col s12 m7">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ recipe.picture }}">
+                    <span class="card-title">{{ recipe.dish }}</span>
+                </div>
+                <div class="card-content">
+                    <p>{{ recipe.upvotes }} people found this delicious</p>
+                    <p>Allergens: </p>
+                </div>
+                <div class="card-action">
+                    <a href="/{{ recipe._id}}">Let's cook!</a>
                 </div>
             </div>
+        </div>
         {% endfor %}
-    </div>
-    <div>
-        <a class="btn waves-effect white grey-text darken-text-2" href="/add_recipe">Add recipe</a>
-    </div>
+    </div>             
 {% endblock %}

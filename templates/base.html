@@ -14,7 +14,7 @@
             <div class="nav-wrapper">
                 <a href="/" class="brand-logo">Recipe Book</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('get_recipes') }}">All Recipes</a></li>
+                <li><a href="{{ url_for('list_recipes') }}">Find a Recipe</a></li>
                 <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
                 </ul>
             </div>
@@ -31,6 +31,7 @@
         $(document).ready(function(){
             $('.collapsible').collapsible();
             $('select').material_select();
+            $('select').formSelect();
         });
         </script>
     </body>

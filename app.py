@@ -12,6 +12,18 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def get_recipes():
+    return render_template("index.html", 
+    recipes=mongo.db.recipes.find())
+
+# List and filter recipes
+@app.route('/list_recipes')
+def list_recipes():
+    # Filtered based on various criteria (e.g. allergens, cuisine, etc…) and 
+    # order them based on some 
+    # reasonable aspect (e.g. number of views or upvotes). 
+    # Create a frontend page to
+    #  display these, and to show some summary statistics around the list (e.g. number 
+    #  of matching recipes, number of new recipes.
     return render_template("list_recipes.html", 
     recipes=mongo.db.recipes.find())
 
@@ -25,19 +37,17 @@ def upvote(recipe_id):
     recipes = mongo.db.recipes
     the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     current_upvotes = the_recipe['upvotes']
-    print(type(current_upvotes))
     new_upvotes = current_upvotes + 1
-    print(type(new_upvotes))
     recipes.update( 
         {'_id': ObjectId(recipe_id)},
         { '$set': { "upvotes": new_upvotes } }
     )
-    # the_recipe['upvotes'] += 1
     return redirect(url_for('cook_recipe', oid=recipe_id ))
 
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template("add_recipe.html")
+    return render_template("add_recipe.html",
+    cuisines=mongo.db.cuisines.find())
 
 @app.route('/insert_recipe', methods=['POST','GET'])
 def insert_recipe():
@@ -49,7 +59,7 @@ def insert_recipe():
 @app.route('/edit_recipe/<recipe_id>', methods=['POST','GET'])
 def edit_recipe(recipe_id):
     the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template('edit_recipe.html', recipe=the_recipe)
+    return render_template('edit_recipe.html', recipe=the_recipe, cuisines=mongo.db.cuisines.find())
 
 @app.route('/update_recipe/<recipe_id>', methods=["GET","POST"])
 def update_recipe(recipe_id):
@@ -57,12 +67,13 @@ def update_recipe(recipe_id):
     recipes = mongo.db.recipes
     recipes.update( {'_id': ObjectId(recipe_id)},
     {
+        '$set':{
         'dish':request.form['dish'],
-        'author':username,
+        'author':request.form['author'],
         'cooking_time':request.form['cooking_time'],
         'picture' : request.form['picture'],
         'ingredients': request.form['ingredients'],
-        'upvotes': '0',
+        'cuisine' : request.form['cuisine'],
         'step_1':request.form['step_1'],
         'step_2':request.form['step_2'],
         'step_3':request.form['step_3'],
@@ -73,6 +84,7 @@ def update_recipe(recipe_id):
         'step_8':request.form['step_8'],
         'step_9':request.form['step_9'],
         'step_10':request.form['step_10']
+        }
     })
     return redirect(url_for('cook_recipe', oid=recipe_id ))
     

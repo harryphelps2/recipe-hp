@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 {% for recipe in recipe %}
+<div class="row">
     <div>
         <img class="responsive-img" src="{{ recipe.picture }}">
         <h2>{{ recipe.dish }}</h2>
+        <p>Cuisine: {{ recipe.cuisine }}</p>
+        <p>{{ recipe.upvotes }} found this delicious</p>
     </div>
     <div>
         <h3>Ingredients</h3>
@@ -57,4 +60,5 @@
         <a class="waves-effect waves-light btn" href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete</a>
     </div>
 {% endfor %}
+</div>
 {% endblock %}

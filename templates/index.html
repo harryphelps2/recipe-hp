@@ -3,8 +3,8 @@
     <div class="carousel carousel-slider center">
         {% for recipe in recipes %}
             <div class="carousel-item amber white-text" href="#one!">
-                <h2>{{ recipe.dish }}</h2>
-                <p class="white-text">Number of upvotes: {{ recipe.upvotes }}</p>
+                <h1>{{ recipe.dish }}</h1>
+                <h4 class="white-text">Number of upvotes: {{ recipe.upvotes }}</h4>
                 <img class="responsive-img" src='{{ recipe.picture }}'>
                 <div class="carousel-fixed-item center">
                     <a class="btn waves-effect white grey-text darken-text-2" href="/{{ recipe._id}}">Let's cook {{ recipe.dish }}</a>

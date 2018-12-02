@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="container">
     <div class="row">
-        <a href="{{ url_for('list_recipes_allergen_free') }}">Filter out Allergens</a>
-        <a href="{{ url_for('list_recipes_most_popular') }}">Sort by most popular</a>
+        <a class="waves-effect waves-light btn" href="{{ url_for('list_recipes_allergen_free') }}">Filter out Allergens</a>
+        <a class="waves-effect waves-light btn" href="{{ url_for('list_recipes_most_popular') }}">Sort by most popular</a>
     </div>
     <div class="row">
         {% for recipe in recipes %}
@@ -16,6 +17,8 @@
                     <p>Upvotes: {{ recipe.upvotes }}</p>
                     {% if  recipe.allergens != '' %}
                         <p>Allergens: {{ recipe.allergens }}</p>
+                    {% else %}
+                        <p>This recipe is free of known allergens!</p>
                     {% endif %}
                 </div>
                 <div class="card-action">
@@ -24,5 +27,6 @@
             </div>
         </div>
         {% endfor %}
-    </div>             
+    </div>   
+</div>          
 {% endblock %}

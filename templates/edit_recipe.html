@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="row">
+<div class="container">
     <form class="col s12" action="{{ url_for('update_recipe', recipe_id=recipe._id ) }}" method="POST" >
-        <h4>Dish details</h4>
+        <h1>Dish details</h1>
         <div class="input-field col s9">
             <input placeholder="author" id="author" type="text" name="author" value="{{ recipe.author }}">
         </div>
@@ -34,7 +34,7 @@
                 <label class="active" for="picture_link">Picture Link</label>
             </div>
         </div>
-        </div>
+        
             <h4>Ingredients</h4>
             <div class="row">
             <div class="input-field col s12">

@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="row">
-        <a href="{{ url_for('list_recipes') }}">All recipes</a>
-        <a href="{{ url_for('list_recipes_allergen_free') }}">Filter out Allergens</a>
+        <a class="waves-effect waves-light btn" href="{{ url_for('list_recipes') }}">All recipes</a>
+        <a class="waves-effect waves-light btn" href="{{ url_for('list_recipes_allergen_free') }}">Filter out Allergens</a>
     </div>
     <div class="row">
         {% for recipe in recipes %}

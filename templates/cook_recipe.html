@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 {% for recipe in recipe %}
-<div class="row">
+<div class="container">
     <div>
-        <img class="responsive-img" src="{{ recipe.picture }}">
         <h2>{{ recipe.dish }}</h2>
+        <img class="responsive-img" src="{{ recipe.picture }}">
         <p>Cuisine: {{ recipe.cuisine }}</p>
         <p>Upvotes: {{ recipe.upvotes }}</p>
         {% if  recipe.allergens != '' %}
@@ -22,34 +22,34 @@
     <div>
         <h3>Steps:</h3>
         <ol>
-            {% if recipe.step_1 is not none %}
+            {% if recipe.step_1 != '' %}
                 <li>{{ recipe.step_1 }}</li>
             {% endif %}
-            {% if recipe.step_2 is not none %}
+            {% if recipe.step_2 != '' %}
                 <li>{{ recipe.step_2 }}</li>
             {% endif %}
-            {% if recipe.step_3 is not none %}
+            {% if recipe.step_3 != '' %}
                 <li>{{ recipe.step_3 }}</li>
             {% endif %}
-            {% if recipe.step_4 is not none %}
+            {% if recipe.step_4 != '' %}
                 <li>{{ recipe.step_4 }}</li>
             {% endif %}
-            {% if recipe.step_5 is not none %}
+            {% if recipe.step_5 != '' %}
                 <li>{{ recipe.step_5 }}</li>
             {% endif %}
-            {% if recipe.step_6 is not none %}
+            {% if recipe.step_6 != '' %}
                 <li>{{ recipe.step_6 }}</li>
             {% endif %}
-            {% if recipe.step_7 is not none %}
+            {% if recipe.step_7 != '' %}
                 <li>{{ recipe.step_7 }}</li>
             {% endif %}
-            {% if recipe.step_8 is not none %}
+            {% if recipe.step_8 != '' %}
                 <li>{{ recipe.step_8 }}</li>
             {% endif %}
-            {% if recipe.step_9 is not none %}
+            {% if recipe.step_9 != '' %}
                 <li>{{ recipe.step_9 }}</li>
             {% endif %}
-            {% if recipe.step_10 is not none %}
+            {% if recipe.step_10 != '' %}
                 <li>{{ recipe.step_10 }}</li>
             {% endif %}
         </ol>

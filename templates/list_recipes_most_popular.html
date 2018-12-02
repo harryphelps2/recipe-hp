@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="row">
+        <a href="{{ url_for('list_recipes') }}">All recipes</a>
         <a href="{{ url_for('list_recipes_allergen_free') }}">Filter out Allergens</a>
-        <a href="{{ url_for('list_recipes_most_popular') }}">Sort by most popular</a>
     </div>
     <div class="row">
         {% for recipe in recipes %}

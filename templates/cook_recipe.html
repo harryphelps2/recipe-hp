@@ -6,7 +6,10 @@
         <img class="responsive-img" src="{{ recipe.picture }}">
         <h2>{{ recipe.dish }}</h2>
         <p>Cuisine: {{ recipe.cuisine }}</p>
-        <p>{{ recipe.upvotes }} found this delicious</p>
+        <p>Upvotes: {{ recipe.upvotes }}</p>
+        {% if  recipe.allergens != '' %}
+            <p>Allergens: {{ recipe.allergens }}</p>
+        {% endif %}
     </div>
     <div>
         <h3>Ingredients</h3>

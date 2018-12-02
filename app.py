@@ -15,17 +15,20 @@ def get_recipes():
     return render_template("index.html", 
     recipes=mongo.db.recipes.find())
 
-# List and filter recipes
 @app.route('/list_recipes')
 def list_recipes():
-    # Filtered based on various criteria (e.g. allergens, cuisine, etc…) and 
-    # order them based on some 
-    # reasonable aspect (e.g. number of views or upvotes). 
-    # Create a frontend page to
-    #  display these, and to show some summary statistics around the list (e.g. number 
-    #  of matching recipes, number of new recipes.
     return render_template("list_recipes.html", 
-    recipes=mongo.db.recipes.find())
+    recipes=mongo.db.recipes.find( { '$query': {}, '$orderby': { 'dish' : 1 } }))
+
+@app.route('/list_recipes_most_popular')
+def list_recipes_most_popular():
+    return render_template("list_recipes.html", 
+    recipes=mongo.db.recipes.find( { '$query': {}, '$orderby': { 'upvotes' : -1 } }))
+
+@app.route('/list_recipes_allergen_free')
+def list_recipes_allergen_free():
+    return render_template("list_recipes_allergen_free.html", 
+    recipes=mongo.db.recipes.find({ 'allergens' : '' }))
 
 @app.route('/<oid>')
 def cook_recipe(oid):
@@ -73,6 +76,7 @@ def update_recipe(recipe_id):
         'cooking_time':request.form['cooking_time'],
         'picture' : request.form['picture'],
         'ingredients': request.form['ingredients'],
+        'allergens': request.form['allergens'],
         'cuisine' : request.form['cuisine'],
         'step_1':request.form['step_1'],
         'step_2':request.form['step_2'],

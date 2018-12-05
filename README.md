@@ -57,6 +57,9 @@ A recipe book where users can add their own recipes, edit recipes and see how po
 
 3. Edit recipe - Edit recipe entry on the database
 
+### Features to Implement
+
+In the future, I would like to add prices to the ingredients and sum up the cost of each recipe. The user could then filter by budget.
 
 ## Technologies Used
 
